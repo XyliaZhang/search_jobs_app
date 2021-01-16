@@ -36,7 +36,8 @@ def result():
     query = request.form.get('query')
     days = request.form.get('days')
     pages = request.form.get('pages')
-    a, c = find_jobs.find_jobs(query, days, pages)
+    a = find_jobs_104.find_jobs_104(query, days, pages)
+    c = find_jobs_1111.find_jobs_1111(query, days, pages)
 
     m_1 = a.iloc[:,0].tolist()
     n_1 = a.iloc[:,1].tolist()
@@ -136,4 +137,4 @@ def result():
     return result
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000)
+    app.run(host='0.0.0.0',port=5000,Debug-True)
