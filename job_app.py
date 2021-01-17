@@ -3,7 +3,7 @@ import find_jobs_104
 import find_jobs_1111
 app = Flask(__name__, static_url_path="/static",static_folder="./static")
 
-@app.route('/search_jobs/',methods=['GET','POST'])
+@app.route('/',methods=['GET','POST'])
 def hello():
     welcom_str = """
     <html>
