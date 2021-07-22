@@ -1,19 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
-import json
 import pprint as pp
 import pandas as pd
 import jieba
-import numpy as np
 from openpyxl import load_workbook
-import os
 
-
-def find_jobs_1111(query, days, pages):
-
-  # os.mkdir(r'./jobs_' + filename + '.xlsx')
-  # writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
-  # jieba.load_userdict('./static/my_dict_skill')
+def find_jobs_1111(query, days, pages,filename):
+  writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
+  jieba.load_userdict('./static/my_dict_skill')
   UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
   headers = {'User-Aagent': UserAgent}
 
@@ -53,13 +47,13 @@ def find_jobs_1111(query, days, pages):
 
       df.drop_duplicates('1111的url', 'first', inplace=True)
       df = df.reset_index(drop=True)
-      # book = load_workbook(r'./jobs_' + filename + '.xlsx')
-      # writer.book = book
+      book = load_workbook(r'./jobs_' + filename + '.xlsx')
+      writer.book = book
 
-      # df_all.to_excel(writer, sheet_name='104爬蟲資料', encoding='utf-8-sig')
-      # df_2.to_excel(writer, sheet_name='統計資料', header=True, encoding='utf-8-sig')
-      # df.to_excel(writer, sheet_name='1111爬蟲資料', encoding='utf-8-sig')
-      # writer.save()
+      df_all.to_excel(writer, sheet_name='104爬蟲資料', encoding='utf-8-sig')
+      df_2.to_excel(writer, sheet_name='統計資料', header=True, encoding='utf-8-sig')
+      df.to_excel(writer, sheet_name='1111爬蟲資料', encoding='utf-8-sig')
+      writer.save()
       # writer.close()
   return df_2
   
@@ -69,6 +63,6 @@ if __name__ == "__main__":
     query = str(input('設定搜尋關鍵詞:'))
     days = str(input('設定爬取幾日內更新資料:'))
     pages = int(input('設定爬取頁數:'))
-    # filename = str(input('設定儲存檔名:jobs_'))
+    filename = str(input('設定儲存檔名:jobs_'))
     c = find_jobs_1111(query,days,pages,filename)
     print(c)  
