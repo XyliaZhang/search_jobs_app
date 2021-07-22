@@ -10,8 +10,7 @@ from openpyxl import load_workbook
 
 
 def find_jobs_104(query, days, pages, filename ):
-#     writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
-#     jieba.load_userdict('./static/my_dict_skill')
+
     UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
     headers = {'User-Aagent': UserAgent}
 
@@ -90,6 +89,8 @@ def find_jobs_104(query, days, pages, filename ):
             df['職務內容'] = job_descs
             df['104的url'] = company_104urls
             df['104分析'] = analys_urls
+            
+#     jieba.load_userdict('./static/my_dict_skill')
 #             for i in skills:
 #                 aa = jieba.cut(str(i))
 #                 skill_count = {'Python': 0, 'SQL': 0, 'MongoDB': 0, 'Linux': 0, 'Docker': 0, 'Java': 0,
@@ -112,6 +113,7 @@ def find_jobs_104(query, days, pages, filename ):
 #             df_all = df
 #             df_all.drop_duplicates('104的url', 'first', inplace=True)
 #             df_all = df_all.reset_index(drop=True)
+#             writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
 #             df_all.to_excel(writer, sheet_name='104爬蟲資料', encoding='utf-8-sig')
 
 #             df_2 = pd.Series.sum(df_score)
