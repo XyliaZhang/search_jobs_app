@@ -5,7 +5,7 @@ import pandas as pd
 import jieba
 # from openpyxl import load_workbook
 
-def find_jobs_1111(query, days, pages,filename):
+def find_jobs_1111(query, days, pages):
 #   writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
   UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
   headers = {'User-Aagent': UserAgent}
@@ -62,5 +62,5 @@ def find_jobs_1111(query, days, pages,filename):
 #     days = str(input('設定爬取幾日內更新資料:'))
 #     pages = int(input('設定爬取頁數:'))
 #     filename = str(input('設定儲存檔名:jobs_'))
-#     c = find_jobs_1111(query,days,pages,filename)
+#     c = find_jobs_1111(query,days,pages)
 #     print(c)  
