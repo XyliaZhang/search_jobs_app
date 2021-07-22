@@ -1,8 +1,8 @@
 # Search_jobs_flask_app
 
-( # python - flask, requests, beautifulsoup)
+( # python - requests, beautifulsoup, flask )
 
-Practice doing ETL ob web and then use flask to build a simple api to send requests and get results.
+Practice doing ETL ob web and then use flask to build a simple api to send requests and get results on web pages.
 
 1.send requests
 
