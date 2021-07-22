@@ -9,7 +9,7 @@ from openpyxl import load_workbook
 
 
 
-def find_jobs_104(query, days, pages, filename ):
+def find_jobs_104(query, days, pages):
 
     UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
     headers = {'User-Aagent': UserAgent}
@@ -132,5 +132,5 @@ def find_jobs_104(query, days, pages, filename ):
 #     days = str(input('設定爬取幾日內更新資料:'))
 #     pages = int(input('設定爬取頁數:'))
 #     filename = str(input('設定儲存檔名:jobs_'))
-#     a = find_jobs_104(query,days,pages,filename)
+#     a = find_jobs_104(query,days,pages)
 #     print(a)
