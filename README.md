@@ -4,22 +4,22 @@
 
 Practice doing ETL ob web and then use flask to build a simple API to send requests and get results on web pages.
 
-1.flask app
+# ● flask app
 
-●send requests
+1.send requests
 
 ![search](https://user-images.githubusercontent.com/69572417/126581200-2a970515-f6cd-4766-85bc-24cfcbd8ba0f.PNG)
 
-●Get results
+2.Get results
 
 ![104](https://user-images.githubusercontent.com/69572417/126581276-6a79de34-021d-456b-aa35-b99b0b6cfccc.PNG)
 
 ![1111](https://user-images.githubusercontent.com/69572417/126581282-e3866223-d472-451b-b312-ee438b646388.PNG)
 
 
-2.skill counts add up and save the result
+# ● skill counts add up and save the result
 
-●  jobs_104_skills.py
+(# jobs_104_skills.py )
 
 save results in excel file
 
