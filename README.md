@@ -2,7 +2,7 @@
 
 ( # python - requests, beautifulsoup, flask )
 
-Practice doing ETL ob web and then use flask to build a simple API to send requests and get results on web pages.
+Practice doing web ETL and then use flask to build a simple API to send requests and get results on web pages.
 
 # ● flask app
 
