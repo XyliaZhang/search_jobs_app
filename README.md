@@ -4,7 +4,7 @@
 
 Practice doing web ETL and then use flask to build a simple API to send requests and get results on web pages.
 
-# ● flask app
+## ● flask app
 
 1.send requests
 
@@ -17,7 +17,7 @@ Practice doing web ETL and then use flask to build a simple API to send requests
 ![1111](https://user-images.githubusercontent.com/69572417/126581282-e3866223-d472-451b-b312-ee438b646388.PNG)
 
 
-# ● skill counts add up and save the result
+## ● skill counts add up and save the result
 
 (# jobs_104_skills.py )
 
