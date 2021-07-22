@@ -6,13 +6,12 @@ import pandas as pd
 import jieba
 import numpy as np
 from openpyxl import load_workbook
-import os
 
 
-def find_jobs_104(query, days, pages):
-    # os.mkdir(r'./jobs_' + filename + '.xlsx')
-    # writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
-    # jieba.load_userdict('./static/my_dict_skill')
+
+def find_jobs_104(query, days, pages, filename ):
+    writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
+    jieba.load_userdict('./static/my_dict_skill')
     UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
     headers = {'User-Aagent': UserAgent}
 
@@ -91,35 +90,35 @@ def find_jobs_104(query, days, pages):
             df['職務內容'] = job_descs
             df['104的url'] = company_104urls
             df['104分析'] = analys_urls
-            # for i in skills:
-            #     aa = jieba.cut(str(i))
-            #     skill_count = {'Python': 0, 'SQL': 0, 'MongoDB': 0, 'Linux': 0, 'Docker': 0, 'Java': 0,
-            #                    'JavaScript': 0, 'AI': 0, 'Redis': 0, 'RESTful': 0, "統計": 0, 'Machine learning': 0,
-            #                    '深度學習': 0, '爬蟲': 0, 'Flask': 0}
-            #     for bb in aa:
-            #         if bb in skill_count:
-            #             skill_count[bb] = 1
-            #         else:
-            #             # skill_count[bb] = 0
-            #             pass
-            #
-            #     values = str(skill_count.values()).strip('dict_values([').strip('])').split(', ')
-            # df_1_list.append(values)
-            # df_score = pd.DataFrame(np.reshape(df_1_list, (-1, 15), order='C'), dtype=np.int)
-            # df_score.columns = ['Python', 'SQL', 'MongoDB', 'Linux', 'Docker', 'Java', 'JavaScript', 'AI', 'Redis',
-            #                     'RESTful', "統計", 'Machine learning', '深度學習', '爬蟲', 'Flask']
+            for i in skills:
+                aa = jieba.cut(str(i))
+                skill_count = {'Python': 0, 'SQL': 0, 'MongoDB': 0, 'Linux': 0, 'Docker': 0, 'Java': 0,
+                               'JavaScript': 0, 'AI': 0, 'Redis': 0, 'RESTful': 0, "統計": 0, 'Machine learning': 0,
+                               '深度學習': 0, '爬蟲': 0, 'Flask': 0}
+                for bb in aa:
+                    if bb in skill_count:
+                        skill_count[bb] = 1
+                    else:
+                        # skill_count[bb] = 0
+                        pass
+            
+                values = str(skill_count.values()).strip('dict_values([').strip('])').split(', ')
+            df_1_list.append(values)
+            df_score = pd.DataFrame(np.reshape(df_1_list, (-1, 15), order='C'), dtype=np.int)
+            df_score.columns = ['Python', 'SQL', 'MongoDB', 'Linux', 'Docker', 'Java', 'JavaScript', 'AI', 'Redis',
+                                'RESTful', "統計", 'Machine learning', '深度學習', '爬蟲', 'Flask']
 
-            # df_all = pd.concat([df, df_score], axis=1)
+            df_all = pd.concat([df, df_score], axis=1)
             df_all = df
             df_all.drop_duplicates('104的url', 'first', inplace=True)
             df_all = df_all.reset_index(drop=True)
-            # df_all.to_excel(writer, sheet_name='104爬蟲資料', encoding='utf-8-sig')
+            df_all.to_excel(writer, sheet_name='104爬蟲資料', encoding='utf-8-sig')
 
-            # df_2 = pd.Series.sum(df_score)
-            # df_2.name = '統計次數'
-            # df_2.to_excel(writer, sheet_name='統計資料', header=True, encoding='utf-8-sig')
-            # writer.save()
-                # writer.close()
+            df_2 = pd.Series.sum(df_score)
+            df_2.name = '統計次數'
+            df_2.to_excel(writer, sheet_name='統計資料', header=True, encoding='utf-8-sig')
+            writer.save()
+#                 writer.close()
     return df_all
 
     
@@ -130,7 +129,6 @@ if __name__ == "__main__":
     query = str(input('設定搜尋關鍵詞:'))
     days = str(input('設定爬取幾日內更新資料:'))
     pages = int(input('設定爬取頁數:'))
-    # filename = str(input('設定儲存檔名:jobs_'))
-    a = find_jobs(query,days,pages,filename)
+    filename = str(input('設定儲存檔名:jobs_'))
+    a = find_jobs_104(query,days,pages,filename)
     print(a)
-
