@@ -7,7 +7,6 @@ import jieba
 
 def find_jobs_1111(query, days, pages,filename):
 #   writer = pd.ExcelWriter(r'./jobs_' + filename + '.xlsx')
-#   jieba.load_userdict('./static/my_dict_skill')
   UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
   headers = {'User-Aagent': UserAgent}
 
@@ -20,7 +19,6 @@ def find_jobs_1111(query, days, pages,filename):
   urls = []
   for x in range(int(pages)):
       url = "https://www.1111.com.tw/search/job?ks=" + query + '&page=' + str(x)
-      # url = "https://www.1111.com.tw/job/79808792/"
       res = requests.get(url=url, headers=headers)
       soup = BeautifulSoup(res.text, 'html.parser')
 
